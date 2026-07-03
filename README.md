@@ -1,7 +1,7 @@
 # RACEFLOW — Metrics Service
 
 > [!IMPORTANT]
-> Este repositorio contiene el **Metrics Service** de RaceFlow.
+> Este repositorio contiene el **Metrics Service** de RaceFlow: metricas y rankings con patron CQRS.
 
 > Para informacion general consulta el [perfil de la organizacion](https://github.com/RaceFlowECI).
 
@@ -20,6 +20,18 @@
 ---
 
 ## Descripcion general
+
+> [!NOTE]
+> Microservicio de metricas y estadisticas deportivas. Implementa el patron CQRS: consume los eventos de sesion de RabbitMQ para actualizar el modelo de escritura (Commands) y expone endpoints de consulta optimizados para lectura (Queries).
+
+### Responsabilidades principales
+
+| Responsabilidad | Descripcion |
+|---|---|
+| **Ingesta** | Consume eventos de SessionFinished de RabbitMQ y persiste los datos. |
+| **Consulta** | Expone estadisticas por usuario, por sala y globales. |
+| **Rankings** | Calcula rankings historicos y por deporte. |
+| **CQRS** | Separa el modelo de escritura (eventos) del modelo de lectura (queries). |
 
 ---
 
