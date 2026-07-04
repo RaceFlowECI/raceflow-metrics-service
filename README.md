@@ -132,6 +132,19 @@ mvn spring-boot:run
 
 ## Endpoints REST
 
+| Metodo | Ruta | Auth | Descripcion |
+|---|---|---|---|
+| `GET` | `/metrics/user/{userId}` | JWT | Estadisticas historicas de un usuario. |
+| `GET` | `/metrics/room/{roomCode}` | JWT | Metricas de una sala especifica. |
+| `GET` | `/metrics/rankings` | JWT | Ranking global de participantes. |
+| `GET` | `/metrics/rankings/{sport}` | JWT | Ranking por deporte (RUNNING, CYCLING, SWIMMING). |
+
+### Ejemplo: obtener ranking global
+```bash
+curl http://localhost:8085/metrics/rankings \
+  -H "Authorization: Bearer <token>"
+```
+
 ---
 
 ## Pruebas y calidad
