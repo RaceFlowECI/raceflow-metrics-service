@@ -1,0 +1,19 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: raceflow-metrics-service
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/metrics
+    username: ${DB_USER:raceflow}
+    password: ${DB_PASSWORD:secret}
+  jpa:
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: 5672
+
