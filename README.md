@@ -58,6 +58,18 @@
 
 ## Patron CQRS
 
+El servicio aplica **Command Query Responsibility Segregation** para separar la escritura de la lectura:
+
+```
+RabbitMQ → [Command Side]          [Query Side] → REST API
+             SessionEventHandler      MetricsQueryService
+             MetricsWriteService      MetricsReadRepository
+             MetricsWriteRepository
+```
+
+- **Command Side**: escucha `session.finished` de RabbitMQ, persiste metricas en la tabla de escritura.
+- **Query Side**: sirve consultas REST desde vistas o proyecciones optimizadas para lectura.
+
 ---
 
 ## Estructura del proyecto
