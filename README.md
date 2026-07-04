@@ -74,6 +74,27 @@ RabbitMQ → [Command Side]          [Query Side] → REST API
 
 ## Estructura del proyecto
 
+```text
+raceflow-metrics-service/
+├── .github/workflows/
+├── .env.example
+├── .gitignore
+├── Dockerfile
+├── pom.xml
+└── src/main/java/edu/eci/arsw/raceflow/metrics/
+    ├── MetricsApplication.java
+    ├── command/
+    │   ├── SessionEventHandler.java
+    │   └── MetricsWriteService.java
+    ├── query/
+    │   ├── MetricsQueryService.java
+    │   └── MetricsReadRepository.java
+    ├── model/
+    │   └── Metric.java
+    └── controller/
+        └── MetricsController.java
+```
+
 ---
 
 ## Configuracion local
