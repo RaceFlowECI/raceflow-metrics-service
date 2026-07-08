@@ -1,5 +1,7 @@
 # RACEFLOW — Metrics Service
 
+![Build](https://github.com/RaceFlowECI/raceflow-metrics-service/actions/workflows/build.yml/badge.svg)
+
 > [!IMPORTANT]
 > Este repositorio contiene el **Metrics Service** de RaceFlow: metricas y rankings con patron CQRS.
 
