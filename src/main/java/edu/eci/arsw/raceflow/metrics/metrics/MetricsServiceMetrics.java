@@ -4,7 +4,7 @@ import io.micrometer.core.instrument.*;
 import org.springframework.stereotype.Component;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Micrometer counters/timers for metrics-service itself, exposed at {@code /actuator/prometheus}. */
+/** Contadores/temporizadores de Micrometer para el propio metrics-service, expuestos en {@code /actuator/prometheus}. */
 @Component
 public class MetricsServiceMetrics {
 
@@ -12,7 +12,7 @@ public class MetricsServiceMetrics {
     private final Counter consumptionLag;
     private final Timer kpiComputationDuration;
 
-    /** @param registry the Micrometer registry to bind these meters to */
+    /** @param registry el registro de Micrometer al cual asociar estas métricas */
     public MetricsServiceMetrics(MeterRegistry registry) {
         this.eventsConsumed = Counter.builder("raceflow.events.consumed")
                 .description("Total events consumed from RabbitMQ")
@@ -35,16 +35,16 @@ public class MetricsServiceMetrics {
     }
 
     /**
-     * Increments the events-consumed counter, tagged by event type.
+     * Incrementa el contador de eventos consumidos, etiquetado por tipo de evento.
      *
-     * @param eventType one of {@code session.finished}, {@code room.activated}, {@code room.finished}
-     * @param registry  the registry to resolve the tagged counter from
+     * @param eventType uno de {@code session.finished}, {@code room.activated}, {@code room.finished}
+     * @param registry  el registro del cual resolver el contador etiquetado
      */
     public void recordEventConsumed(String eventType, MeterRegistry registry) {
         registry.counter("raceflow.events.consumed", "event_type", eventType).increment();
     }
-    /** Increments the counter of events lagging behind in the consumption queue. */
+    /** Incrementa el contador de eventos rezagados en la cola de consumo. */
     public void recordConsumptionLag() { consumptionLag.increment(); }
-    /** @return the timer used to measure KPI aggregation computation duration */
+    /** @return el temporizador usado para medir la duración del cálculo de agregaciones de KPI */
     public Timer getKpiComputationDuration() { return kpiComputationDuration; }
 }

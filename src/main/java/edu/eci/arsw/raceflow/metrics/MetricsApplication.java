@@ -4,13 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Entry point of the Metrics Service skeleton. Reserved for consuming domain
- * events from RabbitMQ and computing KPI aggregations; kept as a placeholder
- * microservice with its metrics scaffolding in place.
+ * Punto de entrada del esqueleto de Metrics Service. Reservado para consumir eventos
+ * de dominio desde RabbitMQ y calcular agregaciones de KPI; se mantiene como un
+ * microservicio placeholder con su andamiaje de métricas en su lugar.
  */
 @SpringBootApplication
 public class MetricsApplication {
-    /** @param args command-line arguments passed to Spring Boot */
+    /** @param args argumentos de línea de comandos pasados a Spring Boot */
     public static void main(String[] args) {
         SpringApplication.run(MetricsApplication.class, args);
     }
